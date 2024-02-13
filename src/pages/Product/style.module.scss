@@ -1,0 +1,79 @@
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--color-bg);
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 7px 7px 5px 0px rgba(0, 0, 0, 0.4);
+
+  @include apply-at-md-size {
+    overflow-x: hidden;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .createBtn {
+    @include directionX;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    width: 20%;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 12px;
+
+    @include apply-at-sm-size {
+      width: 15%;
+    }
+  }
+
+  .image {
+    @include apply-at-xs2-size {
+      max-width: 30%;
+    }
+
+    @include apply-at-sm-size {
+      max-width: 20%;
+    }
+
+    @include apply-at-md-size {
+      max-width: 10%;
+    }
+  }
+
+  .action {
+    @include directionX;
+    gap: 8px;
+
+    .edit {
+      @include directionX;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      background-color: #ffbf00;
+      width: 18px;
+      height: 18px;
+      border-radius: 10px;
+    }
+
+    .delete {
+      @include directionX;
+      justify-content: center;
+      align-items: center;
+      padding: 8px;
+      background-color: #cd1818;
+      width: 18px;
+      height: 18px;
+      border-radius: 10px;
+    }
+  }
+}
