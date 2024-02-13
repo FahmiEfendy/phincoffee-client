@@ -9,6 +9,7 @@ const urls = {
   createCategory: 'category/create',
   categoryList: 'category/list',
   categoryDetail: 'category/detail',
+  updateCategory: 'category/update',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -36,3 +37,5 @@ export const ping = () => callAPI(urls.ping, 'get');
 export const postCreateCategory = (data) => callAPI(urls.createCategory, 'POST', {}, {}, data);
 export const getCategoryList = (params) => callAPI(urls.categoryList, 'GET', {}, params);
 export const getCategoryDetail = (id) => callAPI(`${urls.categoryDetail}/${id}`, 'GET');
+export const patchUpdateCategory = (payload) =>
+  callAPI(`${urls.updateCategory}/${payload.id}`, 'PATCH', {}, {}, payload.data);

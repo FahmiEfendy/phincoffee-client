@@ -13,4 +13,5 @@ export default {
   app_popup_close_button_label: 'Close',
 
   category_create_success: 'Success Create Category',
+  category_update_success: 'Success Update Category',
 };

@@ -7,6 +7,8 @@ import {
   GET_CATEGORY_LIST_FAILED,
   GET_CATEGORY_LIST_REQUEST,
   GET_CATEGORY_LIST_SUCCESS,
+  PATCH_UPDATE_CATEGORY_FAILED,
+  PATCH_UPDATE_CATEGORY_REQUEST,
   POST_CREATE_CATEGORY_FAILED,
   POST_CREATE_CATEGORY_REQUEST,
 } from './constants';
@@ -21,6 +23,9 @@ export const initialState = {
     isError: null,
   },
   createCategory: {
+    isError: null,
+  },
+  updateCategory: {
     isError: null,
   },
 };
@@ -69,6 +74,15 @@ const categoryReducer = (state = initialState, action) =>
 
       case POST_CREATE_CATEGORY_FAILED:
         draft.createCategory.isError = action.error;
+        break;
+
+      // PATCH Update Category
+      case PATCH_UPDATE_CATEGORY_REQUEST:
+        draft.updateCategory.isError = null;
+        break;
+
+      case PATCH_UPDATE_CATEGORY_FAILED:
+        draft.updateCategory.isError = action.error;
         break;
 
       default:

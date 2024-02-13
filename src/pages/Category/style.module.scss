@@ -5,5 +5,9 @@
 
     .list {
         @include directionX;
+
+        button {
+            margin-left: auto;
+        }
     }
 }

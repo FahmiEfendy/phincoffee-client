@@ -5,6 +5,8 @@ import {
   GET_CATEGORY_LIST_FAILED,
   GET_CATEGORY_LIST_REQUEST,
   GET_CATEGORY_LIST_SUCCESS,
+  PATCH_UPDATE_CATEGORY_FAILED,
+  PATCH_UPDATE_CATEGORY_REQUEST,
   POST_CREATE_CATEGORY_FAILED,
   POST_CREATE_CATEGORY_REQUEST,
 } from './constants';
@@ -50,5 +52,17 @@ export const postCreateCategoryRequest = (payload, callback) => ({
 
 export const postCreateCategoryFailed = (error) => ({
   type: POST_CREATE_CATEGORY_FAILED,
+  error,
+});
+
+// PATCH Update Category
+export const patchUpdateCategoryRequest = (payload, callback) => ({
+  type: PATCH_UPDATE_CATEGORY_REQUEST,
+  payload,
+  callback,
+});
+
+export const patchUpdateCategoryFailed = (error) => ({
+  type: PATCH_UPDATE_CATEGORY_FAILED,
   error,
 });
