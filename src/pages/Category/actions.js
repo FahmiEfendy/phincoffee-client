@@ -1,4 +1,6 @@
 import {
+  DELETE_CATEGORY_FAILED,
+  DELETE_CATEGORY_REQUEST,
   GET_CATEGORY_DETAIL_FAILED,
   GET_CATEGORY_DETAIL_REQUEST,
   GET_CATEGORY_DETAIL_SUCCESS,
@@ -64,5 +66,17 @@ export const patchUpdateCategoryRequest = (payload, callback) => ({
 
 export const patchUpdateCategoryFailed = (error) => ({
   type: PATCH_UPDATE_CATEGORY_FAILED,
+  error,
+});
+
+// DELETE Category
+export const deleteCategoryRequest = (id, callback) => ({
+  type: DELETE_CATEGORY_REQUEST,
+  id,
+  callback,
+});
+
+export const deleteCategoryFailed = (error) => ({
+  type: DELETE_CATEGORY_FAILED,
   error,
 });

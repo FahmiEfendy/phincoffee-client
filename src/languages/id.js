@@ -14,4 +14,5 @@ export default {
 
   category_create_success: 'Berhasil Membuat Kategori',
   category_update_success: 'Berhasil Memperbarui Kategori',
+  category_delete_success: 'Berhasil Menghapus Kategori',
 };

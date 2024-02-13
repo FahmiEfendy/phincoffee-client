@@ -1,6 +1,8 @@
 import { produce } from 'immer';
 
 import {
+  DELETE_CATEGORY_FAILED,
+  DELETE_CATEGORY_REQUEST,
   GET_CATEGORY_DETAIL_FAILED,
   GET_CATEGORY_DETAIL_REQUEST,
   GET_CATEGORY_DETAIL_SUCCESS,
@@ -26,6 +28,9 @@ export const initialState = {
     isError: null,
   },
   updateCategory: {
+    isError: null,
+  },
+  deleteCategory: {
     isError: null,
   },
 };
@@ -83,6 +88,15 @@ const categoryReducer = (state = initialState, action) =>
 
       case PATCH_UPDATE_CATEGORY_FAILED:
         draft.updateCategory.isError = action.error;
+        break;
+
+      // DELETE Category
+      case DELETE_CATEGORY_REQUEST:
+        draft.deleteCategory.isError = null;
+        break;
+
+      case DELETE_CATEGORY_FAILED:
+        draft.deleteCategory.isError = action.error;
         break;
 
       default:

@@ -6,8 +6,15 @@ import { createStructuredSelector } from 'reselect';
 import { Box, Button, Container, Typography } from '@mui/material';
 
 import { showPopup } from '@containers/App/actions';
-import { selectCategoryDetail, selectCategoryList, selectCreateCategory, selectUpdateCategory } from './selectors';
 import {
+  selectCategoryDetail,
+  selectCategoryList,
+  selectCreateCategory,
+  selectDeleteCategory,
+  selectUpdateCategory,
+} from './selectors';
+import {
+  deleteCategoryRequest,
   getCategoryDetailRequest,
   getCategoryListRequest,
   patchUpdateCategoryRequest,
@@ -16,7 +23,7 @@ import {
 
 import classes from './style.module.scss';
 
-const Category = ({ createCategory, categoryList, categoryDetail, updateCategory }) => {
+const Category = ({ createCategory, categoryList, categoryDetail, updateCategory, deleteCategory }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -64,11 +71,23 @@ const Category = ({ createCategory, categoryList, categoryDetail, updateCategory
     }
   };
 
+  const deleteCategoryHandler = (id) => {
+    dispatch(
+      deleteCategoryRequest(id, () => {
+        dispatch(getCategoryListRequest());
+      })
+    );
+
+    if (deleteCategory?.isError === null) {
+      dispatch(showPopup('global_success', 'category_delete_success'));
+    }
+  };
+
   useEffect(() => {
-    if (createCategory?.isError !== null || updateCategory?.isError !== null) {
+    if (createCategory?.isError !== null || updateCategory?.isError !== null || deleteCategory?.isError !== null) {
       dispatch(showPopup('global_error', 'global_error_desc'));
     }
-  }, [dispatch, createCategory?.isError, updateCategory?.isError]);
+  }, [dispatch, createCategory?.isError, updateCategory?.isError, deleteCategory?.isError]);
 
   return (
     <Container className={classes.container}>
@@ -83,6 +102,9 @@ const Category = ({ createCategory, categoryList, categoryDetail, updateCategory
           <Button variant="contained" onClick={() => updateCategoryHandler(data.id)}>
             Edit
           </Button>
+          <Button variant="contained" color="error" onClick={() => deleteCategoryHandler(data.id)}>
+            Delete
+          </Button>
         </Box>
       ))}
     </Container>
@@ -94,6 +116,7 @@ Category.propTypes = {
   categoryDetail: PropTypes.object,
   createCategory: PropTypes.object,
   updateCategory: PropTypes.object,
+  deleteCategory: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -101,6 +124,7 @@ const mapStateToProps = createStructuredSelector({
   categoryDetail: selectCategoryDetail,
   createCategory: selectCreateCategory,
   updateCategory: selectUpdateCategory,
+  deleteCategory: selectDeleteCategory,
 });
 
 export default connect(mapStateToProps)(Category);

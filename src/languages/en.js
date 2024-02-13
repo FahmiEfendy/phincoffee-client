@@ -14,4 +14,5 @@ export default {
 
   category_create_success: 'Success Create Category',
   category_update_success: 'Success Update Category',
+  category_delete_success: 'Success Delete Category',
 };

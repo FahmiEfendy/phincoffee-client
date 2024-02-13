@@ -8,3 +8,4 @@ export const selectCreateCategory = createSelector(selectCategoryState, (state) 
 export const selectCategoryList = createSelector(selectCategoryState, (state) => state.categoryList);
 export const selectCategoryDetail = createSelector(selectCategoryState, (state) => state.categoryDetail);
 export const selectUpdateCategory = createSelector(selectCategoryState, (state) => state.updateCategory);
+export const selectDeleteCategory = createSelector(selectCategoryState, (state) => state.deleteCategory);

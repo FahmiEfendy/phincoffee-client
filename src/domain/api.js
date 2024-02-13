@@ -10,6 +10,7 @@ const urls = {
   categoryList: 'category/list',
   categoryDetail: 'category/detail',
   updateCategory: 'category/update',
+  deleteCategory: 'category/delete',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -39,3 +40,4 @@ export const getCategoryList = (params) => callAPI(urls.categoryList, 'GET', {},
 export const getCategoryDetail = (id) => callAPI(`${urls.categoryDetail}/${id}`, 'GET');
 export const patchUpdateCategory = (payload) =>
   callAPI(`${urls.updateCategory}/${payload.id}`, 'PATCH', {}, {}, payload.data);
+export const deleteCategory = (id) => callAPI(`${urls.deleteCategory}/${id}`, 'DELETE');

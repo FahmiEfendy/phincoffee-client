@@ -1,8 +1,15 @@
 import { put, call, takeLatest } from 'redux-saga/effects';
 
 import { setLoading } from '@containers/App/actions';
-import { getCategoryDetail, getCategoryList, patchUpdateCategory, postCreateCategory } from '@domain/api';
 import {
+  deleteCategory,
+  getCategoryDetail,
+  getCategoryList,
+  patchUpdateCategory,
+  postCreateCategory,
+} from '@domain/api';
+import {
+  DELETE_CATEGORY_REQUEST,
   GET_CATEGORY_DETAIL_REQUEST,
   GET_CATEGORY_LIST_REQUEST,
   PATCH_UPDATE_CATEGORY_REQUEST,
@@ -15,6 +22,7 @@ import {
   getCategoryDetailSuccess,
   postCreateCategoryFailed,
   patchUpdateCategoryFailed,
+  deleteCategoryFailed,
 } from './actions';
 
 function* doGetCategoryList(action) {
@@ -71,9 +79,23 @@ function* doPatchUpdateCategory(action) {
   yield put(setLoading(false));
 }
 
+function* doDeleteCategory(action) {
+  yield put(setLoading(true));
+
+  try {
+    yield call(deleteCategory, action.id);
+    action.callback && action.callback();
+  } catch (err) {
+    yield put(deleteCategoryFailed(err.message));
+  }
+
+  yield put(setLoading(false));
+}
+
 export default function* categorySaga() {
   yield takeLatest(GET_CATEGORY_LIST_REQUEST, doGetCategoryList);
   yield takeLatest(GET_CATEGORY_DETAIL_REQUEST, doGetCategoryDetail);
   yield takeLatest(POST_CREATE_CATEGORY_REQUEST, doPostCreateCategory);
   yield takeLatest(PATCH_UPDATE_CATEGORY_REQUEST, doPatchUpdateCategory);
+  yield takeLatest(DELETE_CATEGORY_REQUEST, doDeleteCategory);
 }
