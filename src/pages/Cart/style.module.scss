@@ -8,10 +8,26 @@
         font-size: 24px;
         font-weight: 600;
         letter-spacing: 2px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         padding-left: 2%;
       }
+
+      .cartContainer {
+        @include directionX;
+        .productContainer {
+            flex: 2; 
+            background-color: lightgray;
+        }
+
+        .totalContainer {
+            flex: 1;
+            background-color: red;
+        }
+      }
+    
+
+
+
+
       .card {
         @include directionX;
         width: 100%;

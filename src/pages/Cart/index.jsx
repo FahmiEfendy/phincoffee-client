@@ -22,11 +22,9 @@ const Cart = () => {
           Cart
         </div>
 
-        {/* <div className="grid-container">
-          <div className="grid-item grid-item-1">Grid 1</div>
-          <div className="grid-item grid-item-2">Grid 2</div>
-        </div> */}
-        {/* <div className={classes.card}>
+        <div className={classes.cartContainer}>
+          <div className={`${classes.productContainer}`}>
+          <div className={classes.card}>
           <div className={classes.imgCont}>
             <img src={imgSrc} alt="img" />
           </div>
@@ -49,9 +47,10 @@ const Cart = () => {
 
           </div>
           
-        </div>       */}
-
-        {/* <div className={classes.paySum}>
+        </div>      
+          </div>
+          <div className={`${classes.totalContainer}`}>
+          <div className={classes.paySum}>
           <div className={classes.total}>
             <div className={classes.text}>
               <p>Total</p>
@@ -61,10 +60,15 @@ const Cart = () => {
           <div className={classes.btnCont}>
             <button>
               Pesan
-              <FormattedMessage id="app_basket_button" />
+              
             </button>
           </div>
-        </div> */}
+        </div>
+          </div>
+        </div>
+        
+
+        
       </div>     
     </div>
   );
