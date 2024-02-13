@@ -6,6 +6,7 @@ import request from '@utils/request';
 const urls = {
   ping: 'ping.json',
 
+  createCategory: 'category/create',
   categoryList: 'category/list',
   categoryDetail: 'category/detail',
 };
@@ -32,5 +33,6 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 
 export const ping = () => callAPI(urls.ping, 'get');
 
-export const getCategoryList = (params) => callAPI(urls.categoryList, 'get', {}, params);
-export const getCategoryDetail = (id) => callAPI(`${urls.categoryDetail}/${id}`);
+export const postCreateCategory = (data) => callAPI(urls.createCategory, 'POST', {}, {}, data);
+export const getCategoryList = (params) => callAPI(urls.categoryList, 'GET', {}, params);
+export const getCategoryDetail = (id) => callAPI(`${urls.categoryDetail}/${id}`, 'GET');

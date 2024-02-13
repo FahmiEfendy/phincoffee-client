@@ -7,6 +7,8 @@ import {
   GET_CATEGORY_LIST_FAILED,
   GET_CATEGORY_LIST_REQUEST,
   GET_CATEGORY_LIST_SUCCESS,
+  POST_CREATE_CATEGORY_FAILED,
+  POST_CREATE_CATEGORY_REQUEST,
 } from './constants';
 
 export const initialState = {
@@ -16,6 +18,9 @@ export const initialState = {
   },
   categoryDetail: {
     data: [],
+    isError: null,
+  },
+  createCategory: {
     isError: null,
   },
 };
@@ -55,6 +60,15 @@ const categoryReducer = (state = initialState, action) =>
       case GET_CATEGORY_DETAIL_FAILED:
         draft.categoryDetail.isError = action.error;
         draft.categoryDetail.data = [];
+        break;
+
+      // POST Create Category
+      case POST_CREATE_CATEGORY_REQUEST:
+        draft.createCategory.isError = null;
+        break;
+
+      case POST_CREATE_CATEGORY_FAILED:
+        draft.createCategory.isError = action.error;
         break;
 
       default:

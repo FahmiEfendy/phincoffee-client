@@ -1,1 +1,9 @@
 @import "../../styles/base.scss";
+
+.container {
+    @include directionY;
+
+    .list {
+        @include directionX;
+    }
+}
