@@ -1,4 +1,12 @@
 export default {
+  global_cancel: 'Batal',
+  global_create: 'Tambah',
+  global_update: 'Perbarui',
+  global_delete: 'Hapus',
+  global_success: 'Berhasil',
+  global_error: 'Gagal',
+  global_error_desc: 'Terjadi Kesalahan',
+
   app_greeting: 'Hai dari Web!',
   app_title_header: 'Bootcamp',
   app_not_found: 'Halaman tidak ditemukan',
@@ -7,4 +15,16 @@ export default {
   app_popup_error_title: 'Terjadi kesalahan!',
   app_popup_error_message: 'Maaf, telah terjadi kesalahan. Silakan coba beberapa saat lagi',
   app_popup_close_button_label: 'Tutup',
+  app_popup_confirm_button_label: 'Lanjutkan',
+
+  category_create_success: 'Berhasil Membuat Kategori',
+  category_update_success: 'Berhasil Memperbarui Kategori',
+  category_delete_success: 'Berhasil Menghapus Kategori',
+  category_header: 'Daftar Kategori',
+  category_create: 'Tambah Kategori',
+  category_name: 'Nama Kategori',
+  category_desc: 'Deskripsi Kategori',
+  category_edit: 'Sunting Kategori',
+  category_delete: 'Hapus Kategori',
+  category_delete_desc: 'Apakah kamu yakin ingin menghapus kategori ini?',
 };

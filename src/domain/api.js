@@ -9,6 +9,12 @@ const urls = {
   createProduct: 'product/create',
   updateProduct: 'product/update',
   deleteProduct: 'product/delete',
+
+  createCategory: 'category/create',
+  categoryList: 'category/list',
+  categoryDetail: 'category/detail',
+  updateCategory: 'category/update',
+  deleteCategory: 'category/delete',
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -39,3 +45,10 @@ export const createProduct = (payload) =>
 export const updateProduct = (productId, payload) =>
   callAPI(`${urls.updateProduct}/${productId}`, 'put', { 'Content-Type': 'multipart/form-data' }, {}, payload);
 export const deleteProduct = (productId) => callAPI(`${urls.deleteProduct}/${productId}`, 'delete');
+
+export const postCreateCategory = (data) => callAPI(urls.createCategory, 'POST', {}, {}, data);
+export const getCategoryList = (params) => callAPI(urls.categoryList, 'GET', {}, params);
+export const getCategoryDetail = (id) => callAPI(`${urls.categoryDetail}/${id}`, 'GET');
+export const patchUpdateCategory = (payload) =>
+  callAPI(`${urls.updateCategory}/${payload.id}`, 'PATCH', {}, {}, payload.data);
+export const deleteCategory = (id) => callAPI(`${urls.deleteCategory}/${id}`, 'DELETE');
