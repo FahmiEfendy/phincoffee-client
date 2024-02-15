@@ -1,4 +1,7 @@
 export default {
+  global_cancel: 'Batal',
+  global_create: 'Tambah',
+  global_update: 'Perbarui',
   global_success: 'Berhasil',
   global_error: 'Gagal',
   global_error_desc: 'Terjadi Kesalahan',
@@ -15,4 +18,10 @@ export default {
   category_create_success: 'Berhasil Membuat Kategori',
   category_update_success: 'Berhasil Memperbarui Kategori',
   category_delete_success: 'Berhasil Menghapus Kategori',
+  category_header: 'Daftar Kategori',
+  category_create: 'Tambah Kategori',
+  category_name: 'Nama Kategori',
+  category_desc: 'Deskripsi Kategori',
+  category_edit: 'Sunting Kategori',
+  category_delete: 'Hapus Kategori',
 };

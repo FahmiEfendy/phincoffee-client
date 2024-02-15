@@ -1,4 +1,7 @@
 export default {
+  global_cancel: 'Cancel',
+  global_create: 'Create',
+  global_update: 'Update',
   global_success: 'Success',
   global_error: 'Error',
   global_error_desc: 'Something Went Wrong',
@@ -15,4 +18,10 @@ export default {
   category_create_success: 'Success Create Category',
   category_update_success: 'Success Update Category',
   category_delete_success: 'Success Delete Category',
+  category_header: 'Category List',
+  category_create: 'Create Category',
+  category_name: 'Category Name',
+  category_desc: 'Category Description',
+  category_edit: 'Edit Category',
+  category_delete: 'Delete Category',
 };
