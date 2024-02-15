@@ -1,0 +1,28 @@
+@import '@styles/base.scss';
+
+.modalContent {
+  padding: 32px;
+
+  .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #cd1818;
+  }
+
+  .info {
+    font-size: 18px;
+  }
+
+  .button {
+    width: 20%;
+    margin-top: 20px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    cursor: pointer;
+    text-align: center;
+    cursor: pointer;
+  }
+}

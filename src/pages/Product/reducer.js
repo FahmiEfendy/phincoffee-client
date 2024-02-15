@@ -5,7 +5,7 @@ export const initialState = {
   products: [],
 };
 
-export const storedKey = ['products'];
+export const storedKey = ['products', 'product'];
 
 const productReducer = (state = initialState, action) =>
   produce(state, (draft) => {
