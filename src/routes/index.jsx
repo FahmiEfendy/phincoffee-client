@@ -2,6 +2,7 @@ import MainLayout from '@layouts/MainLayout';
 
 import Home from '@pages/Home';
 import NotFound from '@pages/NotFound';
+import Product from '@pages/Product';
 import Category from '@pages/Category';
 
 const routes = [
@@ -10,6 +11,13 @@ const routes = [
     name: 'Home',
     protected: false,
     component: Home,
+    layout: MainLayout,
+  },
+  {
+    path: '/dashboard/product',
+    name: 'Product',
+    protected: false,
+    component: Product,
     layout: MainLayout,
   },
   {
