@@ -26,6 +26,8 @@ export default {
   category_name_error_required: 'Category Name Must Be Filled!',
   category_desc: 'Category Description',
   category_desc_error_required: 'Category Description Must Be Filled!',
+  category_img: 'Category Image',
+  category_img_error_required: 'Category Image Must Be Filled!',
   category_edit: 'Edit Category',
   category_delete: 'Delete Category',
   category_delete_desc: 'Are You Sure Want to Delete this Category?',

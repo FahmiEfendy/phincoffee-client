@@ -84,7 +84,7 @@ const CategoryList = ({ categoryList, deleteCategory, setEditId, setIsModalOpen 
               <FormattedMessage id="category_delete" />
             </MenuItem>
           </Menu>
-          <Avatar className={classes.category_avatar}>
+          <Avatar className={classes.category_avatar} src={data.image_url}>
             <CoffeeIcon />
           </Avatar>
           <Typography variant="body1" className={classes.category_name}>

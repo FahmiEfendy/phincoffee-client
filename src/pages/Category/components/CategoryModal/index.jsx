@@ -22,6 +22,7 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
 
   const [name, setName] = useState({ value: '', isValid: true });
   const [description, setDescription] = useState({ value: '', isValid: true });
+  const [image, setImage] = useState({ value: '', isValid: true });
 
   const formValidation = () => {
     let isFormValid = true;
@@ -29,8 +30,11 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
     if (name.value === '') {
       setName((prevState) => ({ ...prevState, isValid: false }));
       isFormValid = false;
-    } else if (description.isValid) {
+    } else if (description.value === '') {
       setDescription((prevState) => ({ ...prevState, isValid: false }));
+      isFormValid = false;
+    } else if (image.value === '') {
+      setImage((prevState) => ({ ...prevState, isValid: false }));
       isFormValid = false;
     }
 
@@ -42,10 +46,11 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
 
     if (!isFormValid) return;
 
-    const payload = {
-      name,
-      description,
-    };
+    const payload = new FormData();
+
+    payload.append('name', name.value);
+    payload.append('description', description.value);
+    payload.append('image', image.value);
 
     dispatch(
       postCreateCategoryRequest(payload, () => {
@@ -62,9 +67,12 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
 
   const updateCategoryHandler = (id) => {
     const payload = {
-      data: {
-        description,
-      },
+      data:
+        image.value === ''
+          ? {
+              description: description.value,
+            }
+          : { description: description.value, image: image.value },
       id,
     };
 
@@ -80,6 +88,13 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
     }
   };
 
+  const closeModalHandler = () => {
+    onClose();
+    setName({ value: '', isValid: false });
+    setDescription({ value: '', isValid: false });
+    setImage({ value: '', isValid: false });
+  };
+
   useEffect(() => {
     if (editId) {
       dispatch(getCategoryDetailRequest(editId));
@@ -87,18 +102,11 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
   }, [dispatch, editId]);
 
   useEffect(() => {
-    if (categoryDetail?.data?.name) {
-      setName(categoryDetail?.data?.name);
-      setDescription(categoryDetail?.data?.description);
+    if (editId && categoryDetail?.data?.name && categoryDetail?.data?.description) {
+      setName({ value: categoryDetail?.data?.name, isValid: true });
+      setDescription({ value: categoryDetail?.data?.description, isValid: true });
     }
   }, [categoryDetail?.data, dispatch, editId]);
-
-  // TODO: Fix Clear State
-  // useEffect(() => {
-  //   if (createCategory?.isError !== null) {
-  //     dispatch(showPopup('global_error', 'global_error_desc'));
-  //   }
-  // }, [createCategory?.isError, dispatch]);
 
   return (
     <Modal open={isOpen} onClose={onClose} className={classes.modal_container_outer}>
@@ -138,8 +146,38 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
               onChange={(e) => setDescription({ value: e.target.value, isValid: e.target.value.length > 0 })}
             />
           </Box>
+          <Box className={classes.input_wrapper}>
+            <FormLabel className={classes.input_label}>
+              <FormattedMessage id="category_img" />
+            </FormLabel>
+            {!image.isValid && (
+              <FormLabel className={classes.input_label_error}>
+                <FormattedMessage id="category_img_error_required" />
+              </FormLabel>
+            )}
+            {(categoryDetail?.data?.image_url || image.value) && (
+              <img
+                src={
+                  // eslint-disable-next-line no-nested-ternary
+                  image.value === ''
+                    ? editId
+                      ? categoryDetail?.data?.image_url
+                      : ''
+                    : URL.createObjectURL(image.value)
+                }
+                alt={image.value !== '' ? name.value : ''}
+                className={classes.image}
+              />
+            )}
+            <input
+              type="file"
+              onChange={(e) => {
+                setImage({ value: e.target.files[0], isValid: true });
+              }}
+            />
+          </Box>
           <Box className={classes.button_wrapper}>
-            <Button variant="outlined" onClick={onClose}>
+            <Button variant="outlined" onClick={closeModalHandler}>
               <FormattedMessage id="global_cancel" />
             </Button>
             {editId ? (

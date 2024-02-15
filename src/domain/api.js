@@ -46,9 +46,10 @@ export const updateProduct = (productId, payload) =>
   callAPI(`${urls.updateProduct}/${productId}`, 'put', { 'Content-Type': 'multipart/form-data' }, {}, payload);
 export const deleteProduct = (productId) => callAPI(`${urls.deleteProduct}/${productId}`, 'delete');
 
-export const postCreateCategory = (data) => callAPI(urls.createCategory, 'POST', {}, {}, data);
+export const postCreateCategory = (data) =>
+  callAPI(urls.createCategory, 'POST', { 'Content-Type': 'multipart/form-data' }, {}, data);
 export const getCategoryList = (params) => callAPI(urls.categoryList, 'GET', {}, params);
 export const getCategoryDetail = (id) => callAPI(`${urls.categoryDetail}/${id}`, 'GET');
 export const patchUpdateCategory = (payload) =>
-  callAPI(`${urls.updateCategory}/${payload.id}`, 'PATCH', {}, {}, payload.data);
+  callAPI(`${urls.updateCategory}/${payload.id}`, 'PATCH', { 'Content-Type': 'multipart/form-data' }, {}, payload.data);
 export const deleteCategory = (id) => callAPI(`${urls.deleteCategory}/${id}`, 'DELETE');

@@ -46,6 +46,7 @@
                     }
                 }
 
+                // TODO: Fix Error Label Color
                 .input_label_error{
                     @include font(12px, $font-weight-light, $text-color-black);
                     color: $text-color-red !important;
@@ -54,6 +55,12 @@
                     @include apply-at-md-size{
                         @include font(16px, $font-weight-light, $text-color-black);
                     }
+                }
+
+                .image{
+                    margin-bottom: 1rem;
+                    width: 250px;
+                    height: auto
                 }
             }
     
