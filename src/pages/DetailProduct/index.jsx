@@ -15,7 +15,9 @@ const DetailProduct = ({detailProduct}) => {
   }, [dispatch]);
 
   return (
-    <div className={classes.gridContainer}>
+    <div className={classes.detailContainer}>
+      <div className={classes.pageTitle}>Product Detail</div>
+      <div className={classes.gridContainer}>
       <div className={classes.gridItem}>
         <div className={classes.imageContainer}>
           <img className={classes.imageProduct} src={imgSrc} alt='product image'/>
@@ -32,6 +34,7 @@ const DetailProduct = ({detailProduct}) => {
         </div>
           <button className={classes.btnAddCart}>Add to Cart</button>
       </div>  
+    </div>
     </div>
   );
 };
