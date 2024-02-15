@@ -29,4 +29,5 @@ export default {
   category_edit: 'Sunting Kategori',
   category_delete: 'Hapus Kategori',
   category_delete_desc: 'Apakah kamu yakin ingin menghapus kategori ini?',
+  category_empty: 'Tidak Ada Kategori Ditemukan',
 };

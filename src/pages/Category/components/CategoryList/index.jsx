@@ -57,7 +57,7 @@ const CategoryList = ({ categoryList, deleteCategory, setEditId, setIsModalOpen 
     dispatch(getCategoryListRequest());
   }, [dispatch]);
 
-  return (
+  return categoryList?.data?.length > 0 ? (
     <Box className={classes.category_container}>
       {categoryList?.data?.map((data) => (
         <Box key={data.id} className={classes.category_list}>
@@ -96,6 +96,10 @@ const CategoryList = ({ categoryList, deleteCategory, setEditId, setIsModalOpen 
         </Box>
       ))}
     </Box>
+  ) : (
+    <Typography variant="body1" className={classes.category_empty}>
+      <FormattedMessage id="category_empty" />
+    </Typography>
   );
 };
 

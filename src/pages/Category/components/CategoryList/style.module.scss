@@ -61,4 +61,11 @@
             margin-left: auto;
         }
     }
+
+}
+
+.category_empty{
+    @include font(16px, $font-weight-medium, $text-color-black);
+    padding-top: 2rem;
+    text-align: center;
 }

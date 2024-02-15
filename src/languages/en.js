@@ -29,4 +29,5 @@ export default {
   category_edit: 'Edit Category',
   category_delete: 'Delete Category',
   category_delete_desc: 'Are You Sure Want to Delete this Category?',
+  category_empty: 'No Category Found',
 };
