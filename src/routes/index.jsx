@@ -3,6 +3,7 @@ import MainLayout from '@layouts/MainLayout';
 import Home from '@pages/Home';
 import DetailProduct from '@pages/DetailProduct';
 import Cart from '@pages/Cart';
+import Order from '@pages/Order';
 import NotFound from '@pages/NotFound';
 
 const routes = [
@@ -27,6 +28,14 @@ const routes = [
     name: 'Cart',
     protected: false,
     component: Cart,
+    layout: MainLayout,
+  },
+
+  {
+    path: '/order',
+    name: 'Order',
+    protected: false,
+    component: Order,
     layout: MainLayout,
   },
 
