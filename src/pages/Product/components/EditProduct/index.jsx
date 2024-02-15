@@ -57,7 +57,7 @@ const EditProduct = ({ product, isOpen, onClose }) => {
   return (
     <Dialog open={isOpen} onClose={onClose} fullWidth>
       <div className={classes.modalContent}>
-        <div className={classes.title}>Create Product</div>
+        <div className={classes.title}>Edit Product</div>
 
         {error && <div className={classes.error}>{error}</div>}
 
