@@ -2,6 +2,7 @@ export default {
   global_cancel: 'Cancel',
   global_create: 'Create',
   global_update: 'Update',
+  global_delete: 'Delete',
   global_success: 'Success',
   global_error: 'Error',
   global_error_desc: 'Something Went Wrong',
@@ -14,6 +15,7 @@ export default {
   app_popup_error_title: 'Something went wrong!',
   app_popup_error_message: 'Sorry, an error has occurred. Please try again later',
   app_popup_close_button_label: 'Close',
+  app_popup_confirm_button_label: 'Confirm',
 
   category_create_success: 'Success Create Category',
   category_update_success: 'Success Update Category',
@@ -24,4 +26,5 @@ export default {
   category_desc: 'Category Description',
   category_edit: 'Edit Category',
   category_delete: 'Delete Category',
+  category_delete_desc: 'Are You Sure Want to Delete this Category?',
 };

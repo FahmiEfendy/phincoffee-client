@@ -37,6 +37,7 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
     );
 
     if (createCategory?.isError === null) {
+      onClose();
       dispatch(showPopup('global_success', 'category_create_success'));
     }
   };
@@ -56,11 +57,9 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
     );
 
     if (updateCategory?.isError === null) {
-      dispatch(showPopup('global_success', 'category_update_success'));
       onClose();
+      dispatch(showPopup('global_success', 'category_update_success'));
     }
-
-    // TODO: Fix Close Menu When Success Update
   };
 
   useEffect(() => {

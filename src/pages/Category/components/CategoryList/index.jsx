@@ -8,12 +8,13 @@ import CoffeeIcon from '@mui/icons-material/Coffee';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Avatar, Box, Menu, MenuItem, Typography } from '@mui/material';
 
-import { selectCategoryList } from '@pages/Category/selectors';
-import { getCategoryListRequest } from '@pages/Category/actions';
+import { showPopup } from '@containers/App/actions';
+import { selectCategoryList, selectDeleteCategory } from '@pages/Category/selectors';
+import { deleteCategoryRequest, getCategoryListRequest } from '@pages/Category/actions';
 
 import classes from './style.module.scss';
 
-const CategoryList = ({ categoryList, setEditId, setIsModalOpen }) => {
+const CategoryList = ({ categoryList, deleteCategory, setEditId, setIsModalOpen }) => {
   const dispatch = useDispatch();
 
   const [menuPosition, setMenuPosition] = useState(null);
@@ -32,10 +33,24 @@ const CategoryList = ({ categoryList, setEditId, setIsModalOpen }) => {
 
   const editCategoryHandler = () => {
     setIsModalOpen(true);
+    closeMenuHandler();
   };
 
   const deleteCategoryHander = (id) => {
-    console.log(id);
+    dispatch(
+      showPopup('category_delete', 'category_delete_desc', 'global_delete', () => {
+        dispatch(
+          deleteCategoryRequest(id, () => {
+            dispatch(getCategoryListRequest());
+
+            if (deleteCategory?.isError === null) {
+              closeMenuHandler();
+              dispatch(showPopup('global_success', 'category_delete_success'));
+            }
+          })
+        );
+      })
+    );
   };
 
   useEffect(() => {
@@ -86,12 +101,14 @@ const CategoryList = ({ categoryList, setEditId, setIsModalOpen }) => {
 
 CategoryList.propTypes = {
   categoryList: PropTypes.object,
+  deleteCategory: PropTypes.object,
   setEditId: PropTypes.func,
   setIsModalOpen: PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
   categoryList: selectCategoryList,
+  deleteCategory: selectDeleteCategory,
 });
 
 export default connect(mapStateToProps)(CategoryList);

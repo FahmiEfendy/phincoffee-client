@@ -21,18 +21,6 @@ const Category = () => {
     setEditId(null);
   };
 
-  // const deleteCategoryHandler = (id) => {
-  //   dispatch(
-  //     deleteCategoryRequest(id, () => {
-  //       dispatch(getCategoryListRequest());
-  //     })
-  //   );
-
-  //   if (deleteCategory?.isError === null) {
-  //     dispatch(showPopup('global_success', 'category_delete_success'));
-  //   }
-  // };
-
   return (
     <>
       <Container className={classes.container}>
