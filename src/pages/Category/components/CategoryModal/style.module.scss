@@ -45,6 +45,16 @@
                         @include font(18px, $font-weight-light, $text-color-black);
                     }
                 }
+
+                .input_label_error{
+                    @include font(12px, $font-weight-light, $text-color-black);
+                    color: $text-color-red !important;
+                    margin-bottom: .2rem;
+                    
+                    @include apply-at-md-size{
+                        @include font(16px, $font-weight-light, $text-color-black);
+                    }
+                }
             }
     
             .button_wrapper{

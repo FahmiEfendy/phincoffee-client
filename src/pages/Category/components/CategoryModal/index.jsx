@@ -20,10 +20,28 @@ import classes from './style.module.scss';
 const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen, onClose, editId }) => {
   const dispatch = useDispatch();
 
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState({ value: '', isValid: true });
+  const [description, setDescription] = useState({ value: '', isValid: true });
+
+  const formValidation = () => {
+    let isFormValid = true;
+
+    if (name.value === '') {
+      setName((prevState) => ({ ...prevState, isValid: false }));
+      isFormValid = false;
+    } else if (description.isValid) {
+      setDescription((prevState) => ({ ...prevState, isValid: false }));
+      isFormValid = false;
+    }
+
+    return isFormValid;
+  };
 
   const addCategoryHandler = () => {
+    const isFormValid = formValidation();
+
+    if (!isFormValid) return;
+
     const payload = {
       name,
       description,
@@ -93,13 +111,32 @@ const CategoryModal = ({ categoryDetail, createCategory, updateCategory, isOpen,
             <FormLabel className={classes.input_label}>
               <FormattedMessage id="category_name" />
             </FormLabel>
-            <TextField type="text" value={name} onChange={(e) => setName(e.target.value)} disabled={Boolean(editId)} />
+            {!name.isValid && (
+              <FormLabel className={classes.input_label_error}>
+                <FormattedMessage id="category_name_error_required" />
+              </FormLabel>
+            )}
+            <TextField
+              type="text"
+              value={name.value}
+              onChange={(e) => setName({ value: e.target.value, isValid: e.target.value.length > 0 })}
+              disabled={Boolean(editId)}
+            />
           </Box>
           <Box className={classes.input_wrapper}>
             <FormLabel className={classes.input_label}>
               <FormattedMessage id="category_desc" />
             </FormLabel>
-            <TextField type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
+            {!description.isValid && (
+              <FormLabel className={classes.input_label_error}>
+                <FormattedMessage id="category_desc_error_required" />
+              </FormLabel>
+            )}
+            <TextField
+              type="text"
+              value={description.value}
+              onChange={(e) => setDescription({ value: e.target.value, isValid: e.target.value.length > 0 })}
+            />
           </Box>
           <Box className={classes.button_wrapper}>
             <Button variant="outlined" onClick={onClose}>
