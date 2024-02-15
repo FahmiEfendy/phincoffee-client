@@ -1,0 +1,104 @@
+@import '@styles/base';
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  @include directionX;
+  height: 100vh;
+  width: 100vw;
+
+  .aside {
+    @include directionX;
+    @include apply-at-sm-size {
+      flex: 1 1 0%;
+      display: none;
+    }
+
+    .imgAuth {
+      object-fit: contain;
+    }
+  }
+
+  .containForm {
+    @include directionY;
+    flex: 1 1 0%;
+    background-color: $color-white;
+  }
+
+  .boxForm {
+    @include directionY;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 30px;
+
+    .headerForm {
+      @include directionX;
+      width: 100%;
+      justify-content: end;
+      color: $color-dark-blue;
+      font-weight: bold;
+    }
+
+    form {
+      @include directionY;
+      padding-top: 20px;
+      gap: 20px;
+      width: 100%;
+
+      .formInput {
+        @include directionY;
+        gap: 2px;
+
+        label {
+          font-weight: bold;
+        }
+
+        input {
+          padding: 10px;
+          border-radius: 10px;
+          border: 1px solid #6b240c;
+          outline: none;
+        }
+      }
+
+      .btn {
+        padding-top: 20px;
+
+        button {
+          width: 100%;
+          padding: 10px;
+          font-weight: bold;
+          font-size: 18px;
+          border-radius: 10px;
+          border: none;
+          background-color: #6b240c;
+          color: #fefae0;
+          cursor: pointer;
+        }
+      }
+
+      .text14 {
+        font-size: 14px;
+        text-align: center;
+        padding-top: 20px;
+      }
+
+      .btn {
+        button {
+          width: 100%;
+          padding: 10px;
+          font-weight: bold;
+          font-size: 18px;
+          border-radius: 10px;
+          border: none;
+          background-color: #6b240c;
+          color: #fefae0;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
