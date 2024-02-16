@@ -41,14 +41,14 @@ const routes = [
   {
     path: '/dashboard/product',
     name: 'Product',
-    protected: false,
+    protected: true,
     component: Product,
     layout: AdminLayout,
   },
   {
     path: 'dashboard/category',
     name: 'Category',
-    protected: false,
+    protected: true,
     component: Category,
     layout: AdminLayout,
   },

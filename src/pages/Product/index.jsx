@@ -72,7 +72,7 @@ const Product = ({ products, categories }) => {
           <TableBody>
             {products?.map((product, index) => (
               <TableRow key={index}>
-                <TableCell>{index}</TableCell>
+                <TableCell>{index + 1}</TableCell>
                 <TableCell>
                   <img src={product?.image_url} alt="img" className={classes.image} />
                 </TableCell>
