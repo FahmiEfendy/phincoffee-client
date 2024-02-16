@@ -29,8 +29,13 @@ export default {
   category_header: 'Daftar Kategori',
   category_create: 'Tambah Kategori',
   category_name: 'Nama Kategori',
+  category_name_error_required: 'Nama Kategori Harus Diisi!',
   category_desc: 'Deskripsi Kategori',
+  category_desc_error_required: 'Deskripsi Kategori Harus Diisi!',
+  category_img: 'Gambar Kategori',
+  category_img_error_required: 'Gambar Kategori Harus Diisi!',
   category_edit: 'Sunting Kategori',
   category_delete: 'Hapus Kategori',
   category_delete_desc: 'Apakah kamu yakin ingin menghapus kategori ini?',
+  category_empty: 'Tidak Ada Kategori Ditemukan',
 };
