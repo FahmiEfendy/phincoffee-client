@@ -1,4 +1,12 @@
 export default {
+  global_cancel: 'Cancel',
+  global_create: 'Create',
+  global_update: 'Update',
+  global_delete: 'Delete',
+  global_success: 'Success',
+  global_error: 'Error',
+  global_error_desc: 'Something Went Wrong',
+
   app_greeting: 'Hi from Web!',
   app_title_header: 'Bootcamp',
   app_not_found: 'Page not found',
@@ -13,4 +21,16 @@ export default {
 
   app_login_title: 'Login',
   app_login_text: "Don't have an account?",
+  app_popup_confirm_button_label: 'Confirm',
+
+  category_create_success: 'Success Create Category',
+  category_update_success: 'Success Update Category',
+  category_delete_success: 'Success Delete Category',
+  category_header: 'Category List',
+  category_create: 'Create Category',
+  category_name: 'Category Name',
+  category_desc: 'Category Description',
+  category_edit: 'Edit Category',
+  category_delete: 'Delete Category',
+  category_delete_desc: 'Are You Sure Want to Delete this Category?',
 };
