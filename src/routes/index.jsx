@@ -3,6 +3,7 @@ import MainLayout from '@layouts/MainLayout';
 import Home from '@pages/Home';
 import Register from '@pages/Register';
 import Login from '@pages/Login';
+import Profile from '@pages/Profile';
 import DetailProduct from '@pages/DetailProduct';
 import Cart from '@pages/Cart';
 import Order from '@pages/Order';
@@ -31,6 +32,13 @@ const routes = [
     name: 'Login',
     protected: false,
     component: Login,
+    layout: MainLayout,
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    protected: false,
+    component: Profile,
     layout: MainLayout,
   },
   {
@@ -78,8 +86,6 @@ const routes = [
     component: Order,
     layout: MainLayout,
   },
-
-
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },
 ];
 

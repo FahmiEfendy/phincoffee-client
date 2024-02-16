@@ -7,18 +7,16 @@ const urls = {
   ping: 'ping.json',
   register: 'register',
   login: 'login',
+  getProfile: 'user',
   getProduct: 'product',
   createProduct: 'product/create',
   updateProduct: 'product/update',
   deleteProduct: 'product/delete',
-
   createCategory: 'category/create',
   categoryList: 'category/list',
   categoryDetail: 'category/detail',
   updateCategory: 'category/update',
   deleteCategory: 'category/delete',
-
-
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {
@@ -44,6 +42,7 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 export const ping = () => callAPI(urls.ping, 'get');
 export const register = (dataUser) => callAPI(urls.register, 'POST', {}, {}, dataUser);
 export const login = (dataUser) => callAPI(urls.login, 'POST', {}, {}, dataUser);
+export const getProfile = (userId) => callAPI(`${urls.getProfile}/${userId}`, 'GET');
 export const getAllProduct = (params) => callAPI(urls.getProduct, 'get', {}, params);
 export const getOneProduct = (productId) => callAPI(`${urls.getProduct}/${productId}`, 'get');
 export const createProduct = (payload) =>
@@ -51,7 +50,6 @@ export const createProduct = (payload) =>
 export const updateProduct = (productId, payload) =>
   callAPI(`${urls.updateProduct}/${productId}`, 'put', { 'Content-Type': 'multipart/form-data' }, {}, payload);
 export const deleteProduct = (productId) => callAPI(`${urls.deleteProduct}/${productId}`, 'delete');
-
 export const postCreateCategory = (data) =>
   callAPI(urls.createCategory, 'POST', { 'Content-Type': 'multipart/form-data' }, {}, data);
 export const getCategoryList = (params) => callAPI(urls.categoryList, 'GET', {}, params);
