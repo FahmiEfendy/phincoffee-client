@@ -1,0 +1,139 @@
+@import '@styles/base';
+
+.orderContainer {
+    background-color: $color_white;
+    height: 100vh;
+
+    .pageTitle {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding-left: 2%;
+        padding-top: 10px;
+    }
+
+    .listContainer {
+        @include directionY;
+        padding: 20px;
+        .card {          
+            position: relative; 
+            height: 150px;
+            margin: 10px;
+            border-radius: 20px;
+            align-items: center;
+            background-color: lightgray;
+            .header {
+                @include directionX;
+                align-items: center;
+                margin-left: 10px;
+                height: 100%;
+                img {
+                  width: 50px;
+                  height: 50px;
+                }
+                .title {
+                  margin-left: 20px;
+                  
+                  .comp {
+                    font-size: 14px;
+                    @include apply-at-xl-size {
+                      font-size: 24px;
+                    }
+                  }
+                  .date {
+                    font-size: 10px;
+                    color: gray;
+                    @include apply-at-xl-size {
+                      font-size: 15px;
+                    }
+                  }
+                }
+                .orderMenu {
+                  @include directionY;
+                  font-size: 10px;
+                  margin-left: 5%;
+                  width: 30%;
+                  height: 90%;
+                  overflow-y: scroll;
+                  padding-right: 30px;
+                  @include apply-at-xl-size {
+                    font-size: 14px;
+                    width: 200px;
+                  }
+                }
+                .orderMenu::-webkit-scrollbar {
+                  width: 8px;
+                }
+    
+                .orderMenu::-webkit-scrollbar-track {
+                  background-color: #e4e4e4;
+                  border-radius: 100px;
+                }
+    
+                .orderMenu::-webkit-scrollbar-thumb {
+                  border-radius: 100px;
+                  background-image: linear-gradient(180deg, $color-black 0%, $color-black);
+                }
+                .note {
+                  font-size: 10px;
+                  margin-left: 2%;
+                  width: 90px;
+                  @include apply-at-xl-size {
+                    font-size: 14px;
+                    margin-left: 5%;
+                    width: 300px;
+                  }
+                }
+                .statusP {
+                  font-size: 14px;
+                  margin-left: 1%;
+                  background-color: $color-black;
+                  padding: 5px;
+                  border-radius: 10px;
+                  position: absolute;
+                  right: 0%;
+                  bottom: 0;
+                  color: $color-white;
+                  cursor: pointer;
+                  border: none;
+                  @include apply-at-xl-size {
+                    font-size: 18px;
+                    padding: 12px;
+                  }
+                }
+                .statusR {
+                  font-size: 14px;
+                  border-radius: 10px;
+                  position: absolute;
+                  top: 0;
+                  right: 3%;
+                  color: $color-black;
+                  cursor: pointer;
+                  border: none;
+                  @include apply-at-xl-size {
+                    font-size: 18px;
+                    padding: 12px;
+                  }
+                }
+                .statusS {
+                  font-size: 14px;
+                  margin-left: 1%;
+                  background-color: $color-black;
+                  padding: 5px;
+                  border-radius: 10px;
+                  position: absolute;
+                  right: 0%;
+                  bottom: 0;
+                  color: $color-white;
+                  cursor: pointer;
+                  border: none;
+                  @include apply-at-xl-size {
+                    font-size: 18px;
+                    padding: 12px;
+                  }
+                }
+              }
+
+        }
+    }
+}

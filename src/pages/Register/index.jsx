@@ -18,6 +18,7 @@ const Register = () => {
   const [username, setUsername] = useState({});
   const [email, setEmail] = useState({});
   const [password, setPassword] = useState({});
+  const [role, setRole] = useState({});
 
   const doRegister = () => {
     try {
@@ -25,6 +26,7 @@ const Register = () => {
         username,
         email,
         password,
+        role,
       };
       dispatch(
         setRegister(dataUser, () => {
@@ -66,6 +68,14 @@ const Register = () => {
             <div className={classes.formInput}>
               <label>Password :</label>
               <input type="password" onChange={(e) => setPassword(e.target.value)} />
+            </div>
+            <div className={classes.formInput}>
+              <label>Role :</label>
+              <select name="role" id="role" onChange={(e) => setRole(e.target.value)}>
+                <option hidden>Select Role</option>
+                <option>Admin</option>
+                <option>User</option>
+              </select>
             </div>
             <div className={classes.btnRegister}>
               <button type="button" onClick={doRegister}>

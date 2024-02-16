@@ -3,6 +3,10 @@ import MainLayout from '@layouts/MainLayout';
 import Home from '@pages/Home';
 import Register from '@pages/Register';
 import Login from '@pages/Login';
+import Profile from '@pages/Profile';
+import DetailProduct from '@pages/DetailProduct';
+import Cart from '@pages/Cart';
+import Order from '@pages/Order';
 import NotFound from '@pages/NotFound';
 import Product from '@pages/Product';
 import Category from '@pages/Category';
@@ -15,20 +19,24 @@ const routes = [
     name: 'Home',
     protected: false,
     component: Home,
-    layout: MainLayout,
   },
   {
     path: '/register',
     name: 'Register',
     protected: false,
     component: Register,
-    layout: MainLayout,
   },
   {
     path: '/login',
     name: 'Login',
     protected: false,
     component: Login,
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    protected: false,
+    component: Profile,
     layout: MainLayout,
   },
   {
@@ -52,6 +60,31 @@ const routes = [
     component: Category,
     layout: AdminLayout,
   },
+
+  {
+    path: '/product-details',
+    name: 'DetailProduct',
+    protected: false,
+    component: DetailProduct,
+    layout: MainLayout,
+  },
+
+  {
+    path: '/cart',
+    name: 'Cart',
+    protected: false,
+    component: Cart,
+    layout: MainLayout,
+  },
+
+  {
+    path: '/order',
+    name: 'Order',
+    protected: false,
+    component: Order,
+    layout: MainLayout,
+  },
+
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },
 ];
 

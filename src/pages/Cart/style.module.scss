@@ -1,0 +1,134 @@
+@import '@styles/base';
+
+.basket {
+    background-color: $color-white;
+    height: 100vh;
+    .product {
+      padding-top: 10px;
+      .categoryTitle {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        padding-left: 2%;
+      }
+
+      .cartContainer {
+        @include directionX;
+        gap: 20px;
+        padding: 20px;
+        @media (max-width: 768px) {            
+          @include directionY;
+        }
+
+        .productContainer {
+            flex: 2; 
+            @include directionY;
+            gap: 10px;
+            .card {
+              @include directionX;
+              width: 100%;
+              height: 100%;
+              border-radius: 20px;
+              background-color: lightgray;
+              .imgCont {
+                @include directionX;
+                align-items: center;
+                padding-left: 2%;
+                width: 30%;
+                
+                img {
+                  width: 100%;
+                  height: 80%;
+                  border-radius: 20px;
+                }
+              }
+              .content {
+                @include directionX;
+                width: 100%;
+                .productDetails {
+                  @include directionY;
+                  justify-content: space-between;
+                  padding-left: 4%;
+                  width: 90%;
+                  height: 100%;
+                  .titleCont {
+                    padding-top: 1%;
+                    .title {
+                      font-size: 16px;
+                      font-weight: 600;
+                    }
+                    .desc {
+                      font-size: 12px;
+                      width: 100%;
+                    }
+                  }
+                  .price {
+                    padding-bottom: 1.5%;
+                    font-size: 16px;
+                    font-weight: 600;
+                  }
+                }
+                .actionCard {
+                  position: relative;
+                  width: 10%;
+                  .btnCont {
+                    @include directionX;
+                    gap: 20px;
+                    position: absolute;
+                    bottom: 10px;
+                    right: 30px;
+                    .btnPlus {
+                      background-color: $color-black;
+                      color: $color-white;
+                      width: 30px;
+                      height: 30px;
+                      font-size: 24px;
+                      border-radius: 50%;
+                      outline: none;
+                      border: none;
+                      cursor: pointer;
+                    }
+                  }
+                }
+              }
+            }
+
+        }
+
+        .totalContainer {
+            flex: 1;
+            .paySum {
+              width: 100%;
+              
+              .total {
+                width: 100%;
+                .totalTitle {
+                  font-size: 14px;
+                  font-weight: 400;
+                }
+                .text {
+                  font-size: 18px;
+                  font-weight: 600;
+                }
+              }
+
+              .btnCont {
+                width: 100%;
+                padding-top: 20px;
+                
+                button {
+                  width: 100%;
+                  height: 40px;
+                  border-radius: 5px;
+                  background-color: $color-black;
+                  color: $color-white;
+                  outline: none;
+                  border: none;
+                  border-radius: 20px;
+                }
+              }
+            }
+        }
+      }
+    }
+}
