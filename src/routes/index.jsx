@@ -3,6 +3,7 @@ import MainLayout from '@layouts/MainLayout';
 import Home from '@pages/Home';
 import Register from '@pages/Register';
 import Login from '@pages/Login';
+import Profile from '@pages/Profile';
 import DetailProduct from '@pages/DetailProduct';
 import Cart from '@pages/Cart';
 import Order from '@pages/Order';
@@ -29,6 +30,13 @@ const routes = [
     name: 'Login',
     protected: false,
     component: Login,
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    protected: false,
+    component: Profile,
+    layout: MainLayout,
   },
   {
     path: '/our-products',
