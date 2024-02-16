@@ -1,0 +1,49 @@
+@import '@styles/base';
+
+.wrapper {
+  @include directionY;
+  gap: 10px;
+  padding: 20px 50px;
+
+  form {
+    @include directionY;
+    align-items: center;
+    padding-top: 50px;
+
+    .boxInput {
+      @include directionY;
+      gap: 10px;
+      .formInput {
+        @include directionX;
+        min-width: 350px;
+        gap: 30px;
+        label {
+          min-width: 100px;
+          font-size: 18px;
+        }
+
+        input {
+          min-width: 250px;
+          border: 1px solid gray;
+          border-radius: 5px;
+          outline: none;
+          padding: 10px;
+        }
+      }
+    }
+
+    .btnSave {
+      @include directionX;
+      justify-content: center;
+      margin-top: 50px;
+      button {
+        cursor: pointer;
+        border-radius: 5px;
+        border: none;
+        background-color: #6b240c;
+        padding: 10px;
+        color: $color-white;
+      }
+    }
+  }
+}
