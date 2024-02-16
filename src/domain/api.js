@@ -38,7 +38,7 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 };
 
 export const ping = () => callAPI(urls.ping, 'get');
-export const getAllProduct = () => callAPI(urls.getProduct, 'get');
+export const getAllProduct = (params) => callAPI(urls.getProduct, 'get', {}, params);
 export const getOneProduct = (productId) => callAPI(`${urls.getProduct}/${productId}`, 'get');
 export const createProduct = (payload) =>
   callAPI(urls.createProduct, 'post', { 'Content-Type': 'multipart/form-data' }, {}, payload);

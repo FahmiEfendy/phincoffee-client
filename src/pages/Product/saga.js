@@ -4,10 +4,10 @@ import { createProduct, deleteProduct, getAllProduct, updateProduct } from '@dom
 import { CREATE_PRODUCT, DELETE_PRODUCT, EDIT_PRODUCT, GET_ALL_PRODUCT } from './constants';
 import { setAllProduct } from './actions';
 
-function* doGetAllProduct({ cbFailed }) {
+function* doGetAllProduct({ params, cbFailed }) {
   yield put(setLoading(true));
   try {
-    const products = yield call(getAllProduct);
+    const products = yield call(getAllProduct, params);
     yield put(setAllProduct(products.data));
   } catch (error) {
     if (error?.response?.data?.output?.payload) {

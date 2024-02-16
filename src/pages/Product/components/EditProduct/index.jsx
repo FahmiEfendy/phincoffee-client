@@ -6,7 +6,7 @@ import { Dialog } from '@mui/material';
 import classes from './style.module.scss';
 import { editProduct } from '@pages/Product/actions';
 
-const EditProduct = ({ product, isOpen, onClose }) => {
+const EditProduct = ({ categories, product, isOpen, onClose }) => {
   const [imgPreview, setImgPreview] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [name, setName] = useState('');
@@ -57,7 +57,7 @@ const EditProduct = ({ product, isOpen, onClose }) => {
   return (
     <Dialog open={isOpen} onClose={onClose} fullWidth>
       <div className={classes.modalContent}>
-        <div className={classes.title}>Create Product</div>
+        <div className={classes.title}>Edit Product</div>
 
         {error && <div className={classes.error}>{error}</div>}
 
@@ -114,8 +114,9 @@ const EditProduct = ({ product, isOpen, onClose }) => {
                 setCategoryId(e.target.value);
               }}
             >
-              <option value="1">Coffee</option>
-              <option value="2">Non-Coffee</option>
+              {categories?.map((category) => (
+                <option value={category.id}>{category.name}</option>
+              ))}
             </select>
           </div>
 

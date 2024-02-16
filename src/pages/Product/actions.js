@@ -5,8 +5,9 @@ export const setAllProduct = (products) => ({
   products,
 });
 
-export const getAllProduct = (cbFailed) => ({
+export const getAllProduct = (params, cbFailed) => ({
   type: GET_ALL_PRODUCT,
+  params,
   cbFailed,
 });
 

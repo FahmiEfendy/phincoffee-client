@@ -7,6 +7,7 @@ import Order from '@pages/Order';
 import NotFound from '@pages/NotFound';
 import Product from '@pages/Product';
 import Category from '@pages/Category';
+import HomeProduct from '@pages/HomeProduct';
 
 const routes = [
   {
@@ -14,6 +15,13 @@ const routes = [
     name: 'Home',
     protected: false,
     component: Home,
+    layout: MainLayout,
+  },
+  {
+    path: '/our-products',
+    name: 'Our Product',
+    protected: false,
+    component: HomeProduct,
     layout: MainLayout,
   },
   {
