@@ -5,7 +5,7 @@ import classes from './style.module.scss';
 import { Dialog } from '@mui/material';
 import { createProduct } from '@pages/Product/actions';
 
-const CreateProduct = ({ isOpen, onClose }) => {
+const CreateProduct = ({ categories, isOpen, onClose }) => {
   const [imgPreview, setImgPreview] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [name, setName] = useState('');
@@ -15,6 +15,7 @@ const CreateProduct = ({ isOpen, onClose }) => {
   const [error, setError] = useState('');
   const dispatch = useDispatch();
 
+  console.log(categories);
   useEffect(() => {
     setImgPreview('');
     setImageUrl('');
@@ -113,8 +114,9 @@ const CreateProduct = ({ isOpen, onClose }) => {
                 setCategoryId(e.target.value);
               }}
             >
-              <option value="1">Coffee</option>
-              <option value="2">Non-Coffee</option>
+              {categories?.map((category) => (
+                <option value={category.id}>{category.name}</option>
+              ))}
             </select>
           </div>
 
