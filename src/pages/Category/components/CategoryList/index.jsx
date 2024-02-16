@@ -57,7 +57,7 @@ const CategoryList = ({ categoryList, deleteCategory, setEditId, setIsModalOpen 
     dispatch(getCategoryListRequest());
   }, [dispatch]);
 
-  return (
+  return categoryList?.data?.length > 0 ? (
     <Box className={classes.category_container}>
       {categoryList?.data?.map((data) => (
         <Box key={data.id} className={classes.category_list}>
@@ -84,7 +84,7 @@ const CategoryList = ({ categoryList, deleteCategory, setEditId, setIsModalOpen 
               <FormattedMessage id="category_delete" />
             </MenuItem>
           </Menu>
-          <Avatar className={classes.category_avatar}>
+          <Avatar className={classes.category_avatar} src={data.image_url}>
             <CoffeeIcon />
           </Avatar>
           <Typography variant="body1" className={classes.category_name}>
@@ -96,6 +96,10 @@ const CategoryList = ({ categoryList, deleteCategory, setEditId, setIsModalOpen 
         </Box>
       ))}
     </Box>
+  ) : (
+    <Typography variant="body1" className={classes.category_empty}>
+      <FormattedMessage id="category_empty" />
+    </Typography>
   );
 };
 
