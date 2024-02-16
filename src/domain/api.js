@@ -5,6 +5,8 @@ import request from '@utils/request';
 
 const urls = {
   ping: 'ping.json',
+  register: 'register',
+  login: 'login',
   getProduct: 'product',
   createProduct: 'product/create',
   updateProduct: 'product/update',
@@ -38,6 +40,8 @@ export const callAPI = async (endpoint, method, header = {}, params = {}, data =
 };
 
 export const ping = () => callAPI(urls.ping, 'get');
+export const register = (dataUser) => callAPI(urls.register, 'POST', {}, {}, dataUser);
+export const login = (dataUser) => callAPI(urls.login, 'POST', {}, {}, dataUser);
 export const getAllProduct = (params) => callAPI(urls.getProduct, 'get', {}, params);
 export const getOneProduct = (productId) => callAPI(`${urls.getProduct}/${productId}`, 'get');
 export const createProduct = (payload) =>
