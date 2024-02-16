@@ -15,6 +15,12 @@ export default {
   app_popup_error_title: 'Something went wrong!',
   app_popup_error_message: 'Sorry, an error has occurred. Please try again later',
   app_popup_close_button_label: 'Close',
+
+  app_register_title: 'Register',
+  app_register_text: 'Already have an account?',
+
+  app_login_title: 'Login',
+  app_login_text: "Don't have an account?",
   app_popup_confirm_button_label: 'Confirm',
 
   category_create_success: 'Success Create Category',

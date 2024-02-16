@@ -15,6 +15,12 @@ export default {
   app_popup_error_title: 'Terjadi kesalahan!',
   app_popup_error_message: 'Maaf, telah terjadi kesalahan. Silakan coba beberapa saat lagi',
   app_popup_close_button_label: 'Tutup',
+
+  app_register_title: 'Daftar',
+  app_register_text: 'Sudah mempunyai akun?',
+
+  app_login_title: 'Masuk',
+  app_login_text: 'Belum mempunyai akun?',
   app_popup_confirm_button_label: 'Lanjutkan',
 
   category_create_success: 'Berhasil Membuat Kategori',

@@ -21,7 +21,7 @@ $screen-1024-limit: 1024px;
 }
 
 @mixin apply-at-sm-size {
-  @media (min-width: $screen-sm-limit) {
+  @media (max-width: $screen-sm-limit) {
     @content;
   }
 }
