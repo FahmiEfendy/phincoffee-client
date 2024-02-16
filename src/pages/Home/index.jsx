@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
 
-import MenuRounded from '@mui/icons-material/MenuRounded';
+import { Box, Button } from '@mui/material';
 import LocalMallRounded from '@mui/icons-material/LocalMallRounded';
 import { getAllProduct } from '@pages/Product/actions';
 import { createStructuredSelector } from 'reselect';
 import { selectProducts } from '@pages/Product/selector';
-import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { selectLogin } from '@containers/Client/selectors';
 
 import classes from './style.module.scss';
 
-const Home = ({ products }) => {
+const Home = ({ products, isLogin }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -27,7 +26,16 @@ const Home = ({ products }) => {
         <div className={classes.navMobile}>
           <div className={classes.title}>Phincoffee</div>
           <div className={classes.burger}>
-            <MenuRounded />
+            {!isLogin && (
+              <Button
+                variant="contained"
+                type="button"
+                onClick={() => navigate('/login')}
+                sx={{ padding: '.2rem 1rem', textTransform: 'capitalize', fontFamily: 'Poppins' }}
+              >
+                Login
+              </Button>
+            )}
           </div>
         </div>
         <div className={classes.hero}>
@@ -75,10 +83,12 @@ const Home = ({ products }) => {
 
 Home.propTypes = {
   products: PropTypes.array,
+  isLogin: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
   products: selectProducts,
+  isLogin: selectLogin,
 });
 
 export default connect(mapStateToProps)(Home);
