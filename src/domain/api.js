@@ -17,6 +17,8 @@ const urls = {
   categoryDetail: 'category/detail',
   updateCategory: 'category/update',
   deleteCategory: 'category/delete',
+
+
 };
 
 export const callAPI = async (endpoint, method, header = {}, params = {}, data = {}) => {

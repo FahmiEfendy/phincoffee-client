@@ -5,10 +5,12 @@ import { FormattedMessage } from 'react-intl';
 import imgSrc from '../../static/images/coffee.svg';
 
 import classes from './style.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 
 const DetailProduct = ({detailProduct}) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     
