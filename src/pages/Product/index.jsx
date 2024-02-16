@@ -11,8 +11,10 @@ import classes from './style.module.scss';
 import CreateProduct from './components/CreateProduct';
 import EditProduct from './components/EditProduct';
 import DeleteProduct from './components/DeleteProduct';
+import { getCategoryListRequest } from '@pages/Category/actions';
+import { selectCategoryList } from '@pages/Category/selectors';
 
-const Product = ({ products }) => {
+const Product = ({ products, categories }) => {
   const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const [isCreateOpen, setIsCreateOpen] = useState(false);
@@ -21,6 +23,7 @@ const Product = ({ products }) => {
 
   useEffect(() => {
     dispatch(getAllProduct());
+    dispatch(getCategoryListRequest({}));
   }, [dispatch]);
 
   const handleOpenCreate = () => {
@@ -46,6 +49,7 @@ const Product = ({ products }) => {
             Create
           </div>
           <CreateProduct
+            categories={categories.data}
             isOpen={isCreateOpen}
             onClose={() => {
               setIsCreateOpen(false);
@@ -102,6 +106,7 @@ const Product = ({ products }) => {
 
         <EditProduct
           product={product}
+          categories={categories.data}
           isOpen={isEditOpen}
           onClose={() => {
             setIsEditOpen(false);
@@ -122,10 +127,12 @@ const Product = ({ products }) => {
 
 Product.propTypes = {
   products: PropTypes.array,
+  categories: PropTypes.object,
 };
 
 const mapStateToProps = createStructuredSelector({
   products: selectProducts,
+  categories: selectCategoryList,
 });
 
 export default connect(mapStateToProps)(Product);

@@ -58,7 +58,7 @@ const Home = ({ products }) => {
                   <div className={classes.price}>Rp {product.price}</div>
                 </div>
                 <div className={classes.category}>
-                  Category: <b>Coffee</b>
+                  Category: <b>{product?.category?.name}</b>
                 </div>
               </div>
             </div>
