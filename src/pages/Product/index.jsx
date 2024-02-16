@@ -63,6 +63,7 @@ const Product = ({ products, categories }) => {
               <TableCell>No</TableCell>
               <TableCell>Image</TableCell>
               <TableCell>Name</TableCell>
+              <TableCell>Category</TableCell>
               <TableCell>Price</TableCell>
               {/* <TableCell>Category</TableCell> */}
               <TableCell>Action</TableCell>
@@ -76,6 +77,7 @@ const Product = ({ products, categories }) => {
                   <img src={product?.image_url} alt="img" className={classes.image} />
                 </TableCell>
                 <TableCell>{product?.name}</TableCell>
+                <TableCell>{product?.category?.name}</TableCell>
                 <TableCell>{product?.price}</TableCell>
                 <TableCell>
                   <div className={classes.action}>

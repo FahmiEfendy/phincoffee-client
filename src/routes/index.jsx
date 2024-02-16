@@ -7,6 +7,7 @@ import NotFound from '@pages/NotFound';
 import Product from '@pages/Product';
 import Category from '@pages/Category';
 import HomeProduct from '@pages/HomeProduct';
+import AdminLayout from '@layouts/AdminLayout';
 
 const routes = [
   {
@@ -42,14 +43,14 @@ const routes = [
     name: 'Product',
     protected: false,
     component: Product,
-    layout: MainLayout,
+    layout: AdminLayout,
   },
   {
-    path: '/category',
+    path: 'dashboard/category',
     name: 'Category',
     protected: false,
     component: Category,
-    layout: MainLayout,
+    layout: AdminLayout,
   },
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },
 ];
