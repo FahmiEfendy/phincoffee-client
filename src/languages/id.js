@@ -1,4 +1,12 @@
 export default {
+  global_cancel: 'Batal',
+  global_create: 'Tambah',
+  global_update: 'Perbarui',
+  global_delete: 'Hapus',
+  global_success: 'Berhasil',
+  global_error: 'Gagal',
+  global_error_desc: 'Terjadi Kesalahan',
+
   app_greeting: 'Hai dari Web!',
   app_title_header: 'Bootcamp',
   app_not_found: 'Halaman tidak ditemukan',
@@ -13,4 +21,21 @@ export default {
 
   app_login_title: 'Masuk',
   app_login_text: 'Belum mempunyai akun?',
+  app_popup_confirm_button_label: 'Lanjutkan',
+
+  category_create_success: 'Berhasil Membuat Kategori',
+  category_update_success: 'Berhasil Memperbarui Kategori',
+  category_delete_success: 'Berhasil Menghapus Kategori',
+  category_header: 'Daftar Kategori',
+  category_create: 'Tambah Kategori',
+  category_name: 'Nama Kategori',
+  category_name_error_required: 'Nama Kategori Harus Diisi!',
+  category_desc: 'Deskripsi Kategori',
+  category_desc_error_required: 'Deskripsi Kategori Harus Diisi!',
+  category_img: 'Gambar Kategori',
+  category_img_error_required: 'Gambar Kategori Harus Diisi!',
+  category_edit: 'Sunting Kategori',
+  category_delete: 'Hapus Kategori',
+  category_delete_desc: 'Apakah kamu yakin ingin menghapus kategori ini?',
+  category_empty: 'Tidak Ada Kategori Ditemukan',
 };

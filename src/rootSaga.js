@@ -4,7 +4,9 @@ import appSaga from '@containers/App/saga';
 import registerSaga from '@pages/Register/saga';
 import loginSaga from '@pages/Login/saga';
 import profileSaga from '@pages/Profile/saga';
+import productSaga from '@pages/Product/saga';
+import categorySaga from '@pages/Category/saga';
 
 export default function* rootSaga() {
-  yield all([appSaga(), registerSaga(), loginSaga(), profileSaga()]);
+  yield all([appSaga(), registerSaga(), loginSaga(), productSaga(), categorySaga(), profileSaga()]);
 }

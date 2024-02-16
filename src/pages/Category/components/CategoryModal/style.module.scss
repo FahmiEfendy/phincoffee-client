@@ -1,0 +1,79 @@
+@import "../../../../styles/base.scss";
+
+.modal_container_outer{
+    @include directionX;
+    justify-content: center;
+    align-items: center;
+
+    .modal_container{
+        position: absolute;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        width: 70%;
+        
+        @include apply-at-lg-size{
+            width: 60%;
+        }
+        
+        @include apply-at-xxl-size{
+            width: 50%;
+        }
+    
+        .header{
+            @include font(20px, $font-weight-medium, $text-color-black);
+            text-align: center;
+            margin-bottom: 1rem;
+            
+            @include apply-at-md-size{
+                @include font(26px, $font-weight-medium, $text-color-black);
+            }
+        }
+        
+        .input_container{
+            width: 100%;
+
+            .input_wrapper{
+                @include directionY;
+                margin-top: 1rem;
+                
+                .input_label{
+                    @include font(14px, $font-weight-light, $text-color-black);
+                    margin-bottom: .5rem;
+                    
+                    @include apply-at-md-size{
+                        @include font(18px, $font-weight-light, $text-color-black);
+                    }
+                }
+
+                // TODO: Fix Error Label Color
+                .input_label_error{
+                    @include font(12px, $font-weight-light, $text-color-black);
+                    color: $text-color-red !important;
+                    margin-bottom: .2rem;
+                    
+                    @include apply-at-md-size{
+                        @include font(16px, $font-weight-light, $text-color-black);
+                    }
+                }
+
+                .image{
+                    margin-bottom: 1rem;
+                    width: 250px;
+                    height: auto
+                }
+            }
+    
+            .button_wrapper{
+                @include directionX;
+                justify-content: end;
+                margin-top: 1rem;
+    
+                button {
+                    margin-left: .5rem;
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}
