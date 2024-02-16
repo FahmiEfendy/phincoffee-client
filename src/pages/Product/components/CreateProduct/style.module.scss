@@ -1,0 +1,79 @@
+@import '@styles/base.scss';
+
+.modalContent {
+  padding: 32px;
+  .title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 24px;
+  }
+
+  .error {
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 12px;
+    color: #fff;
+    background-color: opacify(#d24545, 0.5);
+    margin-bottom: 12px;
+
+    @include apply-at-md-size {
+      font-size: 14px;
+    }
+  }
+
+  .inputSection {
+    @include directionY;
+    gap: 28px;
+
+    .formControl {
+      .label {
+        font-size: 14px;
+      }
+
+      .uploadBox {
+        border-radius: 15px;
+        border: 1px solid #000;
+        padding: 24px;
+
+        .previewBox {
+          border-radius: 10px;
+          background-color: #c7c8cc;
+          padding: 8px;
+          text-align: center;
+          .imgPreview {
+            height: 124px;
+            object-fit: cover;
+            border-radius: 5px;
+          }
+        }
+      }
+
+      .input {
+        box-sizing: border-box;
+        width: 100%;
+        height: 36px;
+        border-radius: 5px;
+        padding-left: 12px;
+      }
+
+      .textarea {
+        box-sizing: border-box;
+        width: 100%;
+        height: 36px;
+        border-radius: 5px;
+        padding-left: 12px;
+        height: 5%;
+      }
+    }
+  }
+
+  .button {
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    cursor: pointer;
+    text-align: center;
+    cursor: pointer;
+  }
+}
