@@ -8,4 +8,4 @@ import categorySaga from '@pages/Category/saga';
 
 export default function* rootSaga() {
   yield all([appSaga(), registerSaga(), loginSaga(), productSaga(), categorySaga()]);
-
+}
