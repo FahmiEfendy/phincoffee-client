@@ -17,21 +17,18 @@ const routes = [
     name: 'Home',
     protected: false,
     component: Home,
-    layout: MainLayout,
   },
   {
     path: '/register',
     name: 'Register',
     protected: false,
     component: Register,
-    layout: MainLayout,
   },
   {
     path: '/login',
     name: 'Login',
     protected: false,
     component: Login,
-    layout: MainLayout,
   },
   {
     path: '/our-products',
@@ -78,7 +75,6 @@ const routes = [
     component: Order,
     layout: MainLayout,
   },
-
 
   { path: '*', name: 'Not Found', component: NotFound, layout: MainLayout, protected: false },
 ];
