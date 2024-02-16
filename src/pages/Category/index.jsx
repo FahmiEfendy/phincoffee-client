@@ -23,7 +23,7 @@ const Category = () => {
 
   return (
     <>
-      <Container className={classes.container}>
+      <Container data-testid="category-container" className={classes.container}>
         <Typography variant="body1" className={classes.header}>
           <FormattedMessage id="category_header" />
         </Typography>

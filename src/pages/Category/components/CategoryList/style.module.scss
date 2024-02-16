@@ -34,6 +34,21 @@
             height: 100px;
             width: 100px;
 
+            @include apply-at-sm-size{
+                height: 120px;
+                width: 120px;
+            }
+
+            @include apply-at-lg-size{
+                height: 150px;
+                width: 150px;
+            }
+
+            @include apply-at-xl-size{
+                height: 180px;
+                width: 180px;
+            }
+
             svg{
                 height: 50px;
                 width: 50px;
@@ -42,14 +57,20 @@
 
         .category_name{
             @include font(16px, $font-weight-medium, $text-color-black);
-            margin-top: .5rem;
+            margin-top: 1rem;
             
             @include apply-at-md-size{
                 @include font(18px, $font-weight-medium, $text-color-black);
             }
+            
+            @include apply-at-lg-size{
+                @include font(20px, $font-weight-medium, $text-color-black);
+            }
+
         }
         
         .category_desc{
+            text-align: center;
             @include font(12px, $font-weight-light, $text-color-black);
             
             @include apply-at-md-size{
